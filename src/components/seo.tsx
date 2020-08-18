@@ -19,7 +19,7 @@ const SEO = ({ description, lang, meta, title }) => {
             title
             description
             social {
-              twitter
+              weibo
             }
           }
         }
@@ -54,12 +54,12 @@ const SEO = ({ description, lang, meta, title }) => {
           content: `website`,
         },
         {
-          name: `twitter:card`,
+          name: `weibo:card`,
           content: `summary`,
         },
         {
-          name: `twitter:creator`,
-          content: site.siteMetadata.social.twitter,
+          name: `weibo:creator`,
+          content: site.siteMetadata.social.weibo,
         },
         {
           name: `twitter:title`,
