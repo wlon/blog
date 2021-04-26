@@ -48,12 +48,19 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "G-M2MEZE5T8C", // Google Analytics / GA
+          "", // Google Ads / Adwords / AW
+          "", // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
+        ],
       },
     },
     `gatsby-plugin-feed`,
