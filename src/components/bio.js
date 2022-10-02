@@ -20,7 +20,6 @@ const Bio = () => {
           }
           social {
             twitter
-            weibo
           }
         }
       }
