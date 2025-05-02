@@ -19,6 +19,7 @@ const Seo = ({ description, lang, title, children }) => {
             description
             social {
               twitter
+              weibo
             }
           }
         }
