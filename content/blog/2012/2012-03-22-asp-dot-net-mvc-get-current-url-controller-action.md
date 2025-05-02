@@ -2,6 +2,7 @@
 title: "ASP.NET MVC 中获得当前的URL、Controller、Action"
 date: 2012-03-22 09:08
 description: ""
+slug: "/blog/2012/asp-dot-net-mvc-get-current-url-controller-action"
 ---
 
 ##URL 的获取，ASP.NET 通用：
