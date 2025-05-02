@@ -2,6 +2,7 @@
 title: "Mac OS X Terminal Shortcut Key"
 date: 2012-05-07 15:30
 description: ""
+slug: "/blog/2012/mac-os-x-terminal-shortcut-key"
 ---
 
 #### Mac OS X 终端常用快捷键

@@ -2,6 +2,7 @@
 title: "Validations of rails 3"
 date: 2012-03-25 22:40
 description: ""
+slug: "/blog/2012/validations-of-rails-3"
 ---
 
 To work with server validations we write them in our model by using Active Record library. In rails 3 there is syntax differences to write the validations.

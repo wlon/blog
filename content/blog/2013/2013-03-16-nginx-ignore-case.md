@@ -2,6 +2,7 @@
 title: "Nginx 忽略大小写"
 date: 2013-03-16 21:16
 description: ""
+slug: "/blog/2013/nginx-ignore-case"
 ---
 
 Nginx 当文件中有大小写文件时，用户访问时必须和文件大小写一致才能访问，通过添加 Perl 表达式可以对文件大小写进行转换。

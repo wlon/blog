@@ -2,6 +2,7 @@
 title: "Git 不提交已存在版本控制的本地修改"
 date: 2014-03-10 21:58:10 +0800
 description: ""
+slug: "/blog/2014/git-ignore"
 ---
 
 不提交本地修改可分为两种情况:

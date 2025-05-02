@@ -2,6 +2,7 @@
 title: "Ubuntu 安装配置"
 date: 2013-07-23 22:54
 description: ""
+slug: "/blog/2013/ubuntu-install-and-setting"
 ---
 
 本文主要记录自己在西部数码 VPS 安装 ubuntu 的过程

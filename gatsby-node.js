@@ -1,20 +1,17 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+// Define a template for blog post
+const blogPost = path.resolve(`./src/templates/blog-post.js`)
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
-
-  // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: ASC }
-          limit: 1000
-        ) {
+        allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
           nodes {
             id
             fields {
@@ -95,6 +92,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Social {
       twitter: String
+      weibo: String
     }
 
     type MarkdownRemark implements Node {

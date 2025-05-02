@@ -2,6 +2,7 @@
 title: "Nginx log 分割"
 date: 2012-11-26 22:42
 description: ""
+slug: "/blog/2012/nginx-log-rotation"
 ---
 
 转自 Nginx 中文站

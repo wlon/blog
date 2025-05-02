@@ -2,12 +2,13 @@
 title: "Linux下使用正则和sed命令替换文本"
 date: 2012-11-27 22:37
 description: ""
+slug: "/blog/2012/replace-string-with-sed"
 ---
 
 linux 下使用一下命令可以替换一个目录下面所有的正则匹配到的字符串
 
 {% highlight Bash shell scripts %}
-sed -i "s/origin_string/repleace-string/g" `grep origin_string -rl /path`
+sed -i "s/origin_string/replace-string/g" `grep origin_string -rl /path`
 {% endhighlight %}
 
 多行字符串替换, 注意 `&` 符号需要用 `&amp;` 替换
