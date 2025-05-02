@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://blog.xwlon.com</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 02 May 2025 05:47:34 GMT</lastBuildDate><item><title><![CDATA[Git 不提交已存在版本控制的本地修改]]></title><description><![CDATA[不提交本地修改可分为两种情况: 删除 git 库中已存在的记录，并在本地忽略该文件 然后将这个文件加入中 忽略本地改动，但不删除已存在的记录 恢复]]></description><link>https://blog.xwlon.com/ruby/2014-03-10-git-ignore-a-exist-local-file-change-but-do-not-delete-the-from-the-source-control/</link><guid isPermaLink="false">https://blog.xwlon.com/ruby/2014-03-10-git-ignore-a-exist-local-file-change-but-do-not-delete-the-from-the-source-control/</guid><pubDate>Mon, 10 Mar 2014 13:58:10 GMT</pubDate><content:encoded>&lt;p&gt;不提交本地修改可分为两种情况:&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://blog.xwlon.com</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 02 May 2025 13:59:07 GMT</lastBuildDate><item><title><![CDATA[Linux Shell 相关设置]]></title><description><![CDATA[WSL2 Ubuntu home brew oh my zsh 安装zsh 安装 oh my zsh SSH Key 安装插件 nvm nvim Plug ripgrep tmux]]></description><link>https://blog.xwlon.com/2025/2025-05-02-linux-shell/</link><guid isPermaLink="false">https://blog.xwlon.com/2025/2025-05-02-linux-shell/</guid><pubDate>Fri, 02 May 2025 13:53:00 GMT</pubDate><content:encoded>&lt;h1&gt;WSL2&lt;/h1&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;powershell&quot;&gt;&lt;pre class=&quot;language-powershell&quot;&gt;&lt;code class=&quot;language-powershell&quot;&gt;dism&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exe &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;online &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;enable-feature&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;featurename:Microsoft-Windows-Subsystem-Linux &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;all &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;norestart
+
+dism&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exe &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;online &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;enable-feature&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;featurename:VirtualMachinePlatform &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;all &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;norestart&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Ubuntu&lt;/h2&gt;
+&lt;h3&gt;home brew&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Home brew 现在可以在Linux上安装&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;    /bin/bash &lt;span class=&quot;token parameter variable&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-fsSL&lt;/span&gt; https://raw.githubusercontent.com/Homebrew/install/master/install.sh&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;test -d ~/.linuxbrew &amp;amp;&amp;amp; eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew &amp;amp;&amp;amp; eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+test -r ~/.bash_profile &amp;amp;&amp;amp; echo &quot;eval \$($(brew --prefix)/bin/brew shellenv)&quot; &gt;&gt;~/.bash_profile
+echo &quot;eval \$($(brew --prefix)/bin/brew shellenv)&quot; &gt;&gt;~/.profile&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;oh my zsh&lt;/h3&gt;
+&lt;p&gt;安装zsh&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;zsh&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;安装 oh my zsh&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-fsSL&lt;/span&gt; https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;SSH Key&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;600&lt;/span&gt; ~/.ssh/id_rsa         
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;600&lt;/span&gt; ~/.ssh/id_rsa.pub  &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;安装插件&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone git@github.com:zsh-users/zsh-autosuggestions.git &lt;span class=&quot;token variable&quot;&gt;$ZSH_CUSTOM&lt;/span&gt;/plugins/zsh-autosuggestions&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone https://github.com/zsh-users/zsh-syntax-highlighting.git &lt;span class=&quot;token variable&quot;&gt;$ZSH_CUSTOM&lt;/span&gt;/plugins/zsh-syntax-highlighting
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;https://github.com/wting/autojump#installation&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;vim ~/.zshrc
+plugins=(git zsh-autosuggestions autojump zsh-syntax-highlighting)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;nvm&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;brew install nvm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;nvim&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Plug&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sh -c &apos;curl -fLo &quot;${XDG_DATA_HOME:-$HOME/.local/share}&quot;/nvim/site/autoload/plug.vim --create-dirs \       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim&apos;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;ripgrep&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;tmux&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[Git 不提交已存在版本控制的本地修改]]></title><description><![CDATA[不提交本地修改可分为两种情况: 删除 git 库中已存在的记录，并在本地忽略该文件 然后将这个文件加入中 忽略本地改动，但不删除已存在的记录 恢复]]></description><link>https://blog.xwlon.com/2014/2014-03-10-git-ignore-a-exist-local-file-change-but-do-not-delete-the-from-the-source-control/</link><guid isPermaLink="false">https://blog.xwlon.com/2014/2014-03-10-git-ignore-a-exist-local-file-change-but-do-not-delete-the-from-the-source-control/</guid><pubDate>Mon, 10 Mar 2014 13:58:10 GMT</pubDate><content:encoded>&lt;p&gt;不提交本地修改可分为两种情况:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;删除 git 库中已存在的记录，并在本地忽略该文件&lt;/p&gt;
@@ -11,7 +48,7 @@
 &lt;p&gt;恢复&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git update-index --no-assume-unchanged &amp;lt;file&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[Ubuntu 安装配置]]></title><description><![CDATA[本文主要记录自己在西部数码 VPS 安装 ubuntu 的过程 添加 root 用户  这个命令可以创建 Home 目录和 Shell 路径， 则不会自动创建 Home 目录 Ubuntu 重启不能进入 VPS 原因：查看 /boot/grub/grub.cfg 正是被这个-…]]></description><link>https://blog.xwlon.com/ruby/2013-07-23-ubuntu-install-and-setting/</link><guid isPermaLink="false">https://blog.xwlon.com/ruby/2013-07-23-ubuntu-install-and-setting/</guid><pubDate>Tue, 23 Jul 2013 14:54:00 GMT</pubDate><content:encoded>&lt;p&gt;本文主要记录自己在西部数码 VPS 安装 ubuntu 的过程&lt;/p&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[Ubuntu 安装配置]]></title><description><![CDATA[本文主要记录自己在西部数码 VPS 安装 ubuntu 的过程 添加 root 用户  这个命令可以创建 Home 目录和 Shell 路径， 则不会自动创建 Home 目录 Ubuntu 重启不能进入 VPS 原因：查看 /boot/grub/grub.cfg 正是被这个-…]]></description><link>https://blog.xwlon.com/2013/2013-07-23-ubuntu-install-and-setting/</link><guid isPermaLink="false">https://blog.xwlon.com/2013/2013-07-23-ubuntu-install-and-setting/</guid><pubDate>Tue, 23 Jul 2013 14:54:00 GMT</pubDate><content:encoded>&lt;p&gt;本文主要记录自己在西部数码 VPS 安装 ubuntu 的过程&lt;/p&gt;
 &lt;h3&gt;添加 root 用户&lt;/h3&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;#adduser user&lt;/code&gt; 这个命令可以创建 Home 目录和 Shell 路径，&lt;code class=&quot;language-text&quot;&gt;useradd&lt;/code&gt; 则不会自动创建 Home 目录&lt;/p&gt;
 &lt;h3&gt;Ubuntu 重启不能进入 VPS&lt;/h3&gt;
@@ -47,18 +84,7 @@ deb-src http://mirrors.163.com/ubuntu/ precise-backports main restricted univers
 dns-nameservers 8.8.8.8&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;更新系统&lt;/h3&gt;
 &lt;h3&gt;MySQL 安装配置&lt;/h3&gt;
-&lt;h3&gt;禁止 root 用户 ssh 登录&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[Nginx 用地址重写进行地址重定向]]></title><link>https://blog.xwlon.com/ruby/2013-03-17-nginx-use-rewrite-to-redirect/</link><guid isPermaLink="false">https://blog.xwlon.com/ruby/2013-03-17-nginx-use-rewrite-to-redirect/</guid><pubDate>Sun, 17 Mar 2013 07:14:00 GMT</pubDate><content:encoded>&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;server{
-        listen 6001;
-        server_name soft.wlon.net;
-        rewrite ^/(.*) http://static.hanghaimeng.com/$1 permanent;
-        access_log off;
-}
-server{
-        listen 6000;
-        server_name soft.wlon.net;
-        rewrite ^/(.*) http://static.hanghaimeng.com/$1 permanent;
-        access_log off;
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Nginx 忽略大小写]]></title><description><![CDATA[Nginx 当文件中有大小写文件时，用户访问时必须和文件大小写一致才能访问，通过添加 Perl 表达式可以对文件大小写进行转换。 下载源文件Nginx 下载 安装 Perl 开发包 使用 Passenger 安装,选择第二项 如有权限问题,可使用提升权限。 Nginx…]]></description><link>https://blog.xwlon.com/ruby/2013-03-16-nginx-ignore-case/</link><guid isPermaLink="false">https://blog.xwlon.com/ruby/2013-03-16-nginx-ignore-case/</guid><pubDate>Sat, 16 Mar 2013 13:16:00 GMT</pubDate><content:encoded>&lt;p&gt;Nginx 当文件中有大小写文件时，用户访问时必须和文件大小写一致才能访问，通过添加 Perl 表达式可以对文件大小写进行转换。&lt;/p&gt;
+&lt;h3&gt;禁止 root 用户 ssh 登录&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[Nginx 忽略大小写]]></title><description><![CDATA[Nginx 当文件中有大小写文件时，用户访问时必须和文件大小写一致才能访问，通过添加 Perl 表达式可以对文件大小写进行转换。 下载源文件Nginx 下载 安装 Perl 开发包 使用 Passenger 安装,选择第二项 如有权限问题,可使用提升权限。 Nginx…]]></description><link>https://blog.xwlon.com/2013/2013-03-16-nginx-ignore-case/</link><guid isPermaLink="false">https://blog.xwlon.com/2013/2013-03-16-nginx-ignore-case/</guid><pubDate>Sat, 16 Mar 2013 13:16:00 GMT</pubDate><content:encoded>&lt;p&gt;Nginx 当文件中有大小写文件时，用户访问时必须和文件大小写一致才能访问，通过添加 Perl 表达式可以对文件大小写进行转换。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;下载源文件&lt;a href=&quot;http://nginx.org/en/download.html&quot;&gt;Nginx 下载&lt;/a&gt;&lt;/p&gt;
@@ -105,10 +131,10 @@ expires      30d;
 }
 }
 {% endhighlight %}&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Linux下使用正则和sed命令替换文本]]></title><description><![CDATA[linux 下使用一下命令可以替换一个目录下面所有的正则匹配到的字符串 {% highlight Bash shell scripts %}
-sed -i “s/origin_string/repleace-string/g” 
-{% endhighlight…]]></description><link>https://blog.xwlon.com/ruby/2012-11-27-repleace-string-with-sed/</link><guid isPermaLink="false">https://blog.xwlon.com/ruby/2012-11-27-repleace-string-with-sed/</guid><pubDate>Tue, 27 Nov 2012 14:37:00 GMT</pubDate><content:encoded>&lt;p&gt;linux 下使用一下命令可以替换一个目录下面所有的正则匹配到的字符串&lt;/p&gt;
+sed -i “s/origin_string/replace-string/g” 
+{% endhighlight…]]></description><link>https://blog.xwlon.com/2012/2012-11-27-replace-string-with-sed/</link><guid isPermaLink="false">https://blog.xwlon.com/2012/2012-11-27-replace-string-with-sed/</guid><pubDate>Tue, 27 Nov 2012 14:37:00 GMT</pubDate><content:encoded>&lt;p&gt;linux 下使用一下命令可以替换一个目录下面所有的正则匹配到的字符串&lt;/p&gt;
 &lt;p&gt;{% highlight Bash shell scripts %}
-sed -i “s/origin_string/repleace-string/g” &lt;code class=&quot;language-text&quot;&gt;grep origin_string -rl /path&lt;/code&gt;
+sed -i “s/origin_string/replace-string/g” &lt;code class=&quot;language-text&quot;&gt;grep origin_string -rl /path&lt;/code&gt;
 {% endhighlight %}&lt;/p&gt;
 &lt;p&gt;多行字符串替换, 注意 &lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt; 符号需要用 &lt;code class=&quot;language-text&quot;&gt;&amp;amp;amp;&lt;/code&gt; 替换&lt;/p&gt;
 &lt;p&gt;{% highlight Bash shell scripts %}
@@ -117,7 +143,7 @@ sed -i ‘s#&lt;/body&gt;#&lt;!-- JiaThis Button BEGIN --&gt;\n&lt;script type=&
 &lt;p&gt;替换测试&lt;/p&gt;
 &lt;p&gt;{% highlight Bash shell scripts %}
 echo ”&lt;/body&gt;” | sed -e ‘s#&lt;/body&gt;#&lt;!-- JiaThis Button BEGIN --&gt;\n&lt;script type=&quot;text/javascript&quot; src=&quot;http://v3.jiathis.com/code/jiathis_r.js?uid=1353130564443815\&amp;move=0\&amp;amp;btn=r4.gif&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;\n&lt;!-- JiaThis Button END --&gt;\n&lt;/body&gt;#g’
-{% endhighlight %}&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Nginx log 分割]]></title><description><![CDATA[转自 Nginx 中文站 nginx 的日志文件没有 rotate 功能。如果你不处理，日志文件将变得越来越大，还好我们可以写一个 nginx 日志切割脚本来自动切割日志文件。 第一步就是重命名日志文件，不用担心重命名后 nginx…]]></description><link>https://blog.xwlon.com/ruby/2012-11-26-nginx-log-rotation/</link><guid isPermaLink="false">https://blog.xwlon.com/ruby/2012-11-26-nginx-log-rotation/</guid><pubDate>Mon, 26 Nov 2012 14:42:00 GMT</pubDate><content:encoded>&lt;p&gt;转自 Nginx 中文站&lt;/p&gt;
+{% endhighlight %}&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Nginx log 分割]]></title><description><![CDATA[转自 Nginx 中文站 nginx 的日志文件没有 rotate 功能。如果你不处理，日志文件将变得越来越大，还好我们可以写一个 nginx 日志切割脚本来自动切割日志文件。 第一步就是重命名日志文件，不用担心重命名后 nginx…]]></description><link>https://blog.xwlon.com/2012/2012-11-26-nginx-log-rotation/</link><guid isPermaLink="false">https://blog.xwlon.com/2012/2012-11-26-nginx-log-rotation/</guid><pubDate>Mon, 26 Nov 2012 14:42:00 GMT</pubDate><content:encoded>&lt;p&gt;转自 Nginx 中文站&lt;/p&gt;
 &lt;p&gt;nginx 的日志文件没有 rotate 功能。如果你不处理，日志文件将变得越来越大，还好我们可以写一个 nginx 日志切割脚本来自动切割日志文件。&lt;/p&gt;
 &lt;p&gt;第一步就是重命名日志文件，不用担心重命名后 nginx 找不到日志文件而丢失日志。在你未重新打开原名字的日志文件前，nginx 还是会向你重命名的文件写日志，linux 是靠文件描述符而不是文件名定位文件。&lt;/p&gt;
 &lt;p&gt;第二步向 nginx 主进程发送 USR1 信号。&lt;/p&gt;
@@ -149,152 +175,7 @@ kill -USR1 `cat ${pid_path}`
 &lt;p&gt;添加内容&lt;/p&gt;
 &lt;p&gt;0 0 * * * sh /usr/local/nginx/nginx_log.sh&lt;/p&gt;
 &lt;p&gt;保存退出：wq&lt;/p&gt;
-&lt;p&gt;这样就每天的 0 点 0 分把 nginx 日志重命名为日期格式，并重新生成今天的新日志文件。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Text Mate Shortcut Key]]></title><description><![CDATA[快捷键 功能 cmd + s 保存 cmd + l 定位到某行 cmd + f 页面内查找，替换 cmd + g 下一个搜索文字 cmd + shift + g 上一个搜索文字 cmd + 数字 打开对应的标签页 cmd + > 行尾 cmd + < 行头 cmd…]]></description><link>https://blog.xwlon.com/ruby/2012-07-04-text-mate-shortcut-key/</link><guid isPermaLink="false">https://blog.xwlon.com/ruby/2012-07-04-text-mate-shortcut-key/</guid><pubDate>Wed, 04 Jul 2012 14:20:00 GMT</pubDate><content:encoded>&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;left&quot;&gt;快捷键&lt;/th&gt;
-&lt;th align=&quot;left&quot;&gt;功能&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + s&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;保存&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + l&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;定位到某行&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + f&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;页面内查找，替换&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + g&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;下一个搜索文字&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + shift + g&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;上一个搜索文字&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + 数字&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;打开对应的标签页&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + &gt;&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;行尾&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + &amp;#x3C;&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;行头&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + ^&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;页头&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + 下箭头&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;页尾&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + z&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;撤消&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + x&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;剪切&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + c&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;拷贝&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + v&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;粘贴&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + n&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;新开窗口建文件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + t&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;项目中的文件导航&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + w&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;关闭标签&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + o&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;打开项目&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + m&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;最小化&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + /&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;注释&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + ]&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;增加缩进&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + [&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;减少缩进&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + alt + [&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;格式化代码&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + shift + t&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;方法导航&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;cmd + alt + l&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;显示行号&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;ctrl + cmd + ^&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;整行上移&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;ctrl + cmd + v&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;整行下移&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;ctrl + shift + k&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;整行删除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;ctrl + shift + d&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;复制所在整行&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;ctrl + shift + t&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;查看 TODO&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;alt + &gt;&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;光标右移一个单词&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;alt + &amp;#x3C;&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;光标左移一个单词&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;esc&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;自动补全&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;F1&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;开关当前方法块&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;</content:encoded></item><item><title><![CDATA[Mac OS X Terminal Shortcut Key]]></title><description><![CDATA[Mac OS X 终端常用快捷键 快捷键 功能 Ctrl + a 移动到开头 Ctrl + e 移动到结尾 Ctrl + b 向左移动一个字符（助记 back） Ctrl + f 向右移动一个字符（助记 forward） Option + Left 向左移动一个单词 Option…]]></description><link>https://blog.xwlon.com/ruby/2012-05-07-mac-os-x-terminal-shortcut-key/</link><guid isPermaLink="false">https://blog.xwlon.com/ruby/2012-05-07-mac-os-x-terminal-shortcut-key/</guid><pubDate>Mon, 07 May 2012 07:30:00 GMT</pubDate><content:encoded>&lt;h4&gt;Mac OS X 终端常用快捷键&lt;/h4&gt;
+&lt;p&gt;这样就每天的 0 点 0 分把 nginx 日志重命名为日期格式，并重新生成今天的新日志文件。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Mac OS X Terminal Shortcut Key]]></title><description><![CDATA[Mac OS X 终端常用快捷键 快捷键 功能 Ctrl + a 移动到开头 Ctrl + e 移动到结尾 Ctrl + b 向左移动一个字符（助记 back） Ctrl + f 向右移动一个字符（助记 forward） Option + Left 向左移动一个单词 Option…]]></description><link>https://blog.xwlon.com/2012/2012-05-07-mac-os-x-terminal-shortcut-key/</link><guid isPermaLink="false">https://blog.xwlon.com/2012/2012-05-07-mac-os-x-terminal-shortcut-key/</guid><pubDate>Mon, 07 May 2012 07:30:00 GMT</pubDate><content:encoded>&lt;h4&gt;Mac OS X 终端常用快捷键&lt;/h4&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -361,10 +242,10 @@ kill -USR1 `cat ${pid_path}`
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;</content:encoded></item><item><title><![CDATA[VIM Common Shortcut Key]]></title><description><![CDATA[###ERB
-Press Ctrl+S and = afterwards to insert <%= %> block Press Ctrl+S and - afterwards to insert <% -%> block Press Ctrl+s and…]]></description><link>https://blog.xwlon.com/ruby/2012-04-09-vim-common-shortcut-key/</link><guid isPermaLink="false">https://blog.xwlon.com/ruby/2012-04-09-vim-common-shortcut-key/</guid><pubDate>Mon, 09 Apr 2012 15:13:00 GMT</pubDate><content:encoded>&lt;p&gt;###ERB
+Press Ctrl+S and = afterwards to insert <%= %> block Press Ctrl+S and - afterwards to insert <% -%> block Press Ctrl+s and…]]></description><link>https://blog.xwlon.com/2012/2012-04-09-vim-common-shortcut-key/</link><guid isPermaLink="false">https://blog.xwlon.com/2012/2012-04-09-vim-common-shortcut-key/</guid><pubDate>Mon, 09 Apr 2012 15:13:00 GMT</pubDate><content:encoded>&lt;p&gt;###ERB
 Press Ctrl+S and = afterwards to insert &amp;#x3C;%= %&gt; block&lt;br&gt;
 Press Ctrl+S and - afterwards to insert &amp;#x3C;% -%&gt; block&lt;br&gt;
-Press Ctrl+s and # afterwards to insert &amp;#x3C;%# %&gt; block&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Validations of rails 3]]></title><description><![CDATA[To work with server validations we write them in our model by using Active Record library. In rails 3 there is syntax differences to write…]]></description><link>https://blog.xwlon.com/ruby/2012-03-25-validations-of-rails-3/</link><guid isPermaLink="false">https://blog.xwlon.com/ruby/2012-03-25-validations-of-rails-3/</guid><pubDate>Sun, 25 Mar 2012 14:40:00 GMT</pubDate><content:encoded>&lt;p&gt;To work with server validations we write them in our model by using Active Record library. In rails 3 there is syntax differences to write the validations.&lt;/p&gt;
+Press Ctrl+s and # afterwards to insert &amp;#x3C;%# %&gt; block&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Validations of rails 3]]></title><description><![CDATA[To work with server validations we write them in our model by using Active Record library. In rails 3 there is syntax differences to write…]]></description><link>https://blog.xwlon.com/2012/2012-03-25-validations-of-rails-3/</link><guid isPermaLink="false">https://blog.xwlon.com/2012/2012-03-25-validations-of-rails-3/</guid><pubDate>Sun, 25 Mar 2012 14:40:00 GMT</pubDate><content:encoded>&lt;p&gt;To work with server validations we write them in our model by using Active Record library. In rails 3 there is syntax differences to write the validations.&lt;/p&gt;
 &lt;p&gt;In rails 2.x.x versions:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ruby&quot;&gt;&lt;pre class=&quot;language-ruby&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;validates_presence_of &lt;span class=&quot;token symbol&quot;&gt;:first_name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token symbol&quot;&gt;:email&lt;/span&gt;
 validates_uniqueness_of &lt;span class=&quot;token symbol&quot;&gt;:first_name&lt;/span&gt;
@@ -385,7 +266,7 @@ validates &lt;span class=&quot;token symbol&quot;&gt;:email&lt;/span&gt;&lt;span
 &lt;p&gt;By providing this, it is very easy to use and write the code with flexible.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[ASP.NET MVC 中获得当前的URL、Controller、Action]]></title><description><![CDATA[##URL 的获取，ASP.NET 通用：
 【1】获取 完整 url （协议名+域名+虚拟目录名+文件名+参数）
 string url=Request.Url.ToString(); 【2】获取 虚拟目录名+页面名+参数：
-string url=Request.RawUrl…]]></description><link>https://blog.xwlon.com/ruby/2012-03-22-asp-dot-net-mvc-get-current-url-controller-action/</link><guid isPermaLink="false">https://blog.xwlon.com/ruby/2012-03-22-asp-dot-net-mvc-get-current-url-controller-action/</guid><pubDate>Thu, 22 Mar 2012 01:08:00 GMT</pubDate><content:encoded>&lt;p&gt;##URL 的获取，ASP.NET 通用：
+string url=Request.RawUrl…]]></description><link>https://blog.xwlon.com/2012/2012-03-22-asp-dot-net-mvc-get-current-url-controller-action/</link><guid isPermaLink="false">https://blog.xwlon.com/2012/2012-03-22-asp-dot-net-mvc-get-current-url-controller-action/</guid><pubDate>Thu, 22 Mar 2012 01:08:00 GMT</pubDate><content:encoded>&lt;p&gt;##URL 的获取，ASP.NET 通用：
 【1】获取 完整 url （协议名+域名+虚拟目录名+文件名+参数）
 string url=Request.Url.ToString();&lt;/p&gt;
 &lt;p&gt;【2】获取 虚拟目录名+页面名+参数：
@@ -413,7 +294,7 @@ ViewContext.RouteData.Route.GetRouteData(this.Context).Values[“action”]
 ViewContext.RouteData.Values[“controller”]
 ViewContext.RouteData.Values[“action”]&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Deploy rails on windows]]></title><description><![CDATA[###转自
 kloboHYZ 由于 mongrel 已经年久失修、不支持最新的 1.9.2 版本了、所以现在使用 thin 作为 rails 服务器、再加上 nginx 作反向代理、
-首先安装 thin 吧、在 windows 平台下、需要先安装 eventmachine…]]></description><link>https://blog.xwlon.com/ruby/2012-01-06-deploy-rails-on-windows/</link><guid isPermaLink="false">https://blog.xwlon.com/ruby/2012-01-06-deploy-rails-on-windows/</guid><pubDate>Fri, 06 Jan 2012 06:33:00 GMT</pubDate><content:encoded>&lt;p&gt;###转自
+首先安装 thin 吧、在 windows 平台下、需要先安装 eventmachine…]]></description><link>https://blog.xwlon.com/2012/2012-01-06-deploy-rails-on-windows/</link><guid isPermaLink="false">https://blog.xwlon.com/2012/2012-01-06-deploy-rails-on-windows/</guid><pubDate>Fri, 06 Jan 2012 06:33:00 GMT</pubDate><content:encoded>&lt;p&gt;###转自
 &lt;a href=&quot;http://www.cnblogs.com/klobohyz/archive/2011/12/27/2303450.html&quot;&gt;kloboHYZ&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;由于 mongrel 已经年久失修、不支持最新的 1.9.2 版本了、所以现在使用 thin 作为 rails 服务器、再加上 nginx 作反向代理、
 首先安装 thin 吧、在 windows 平台下、需要先安装 eventmachine、否则不能安装 thin 服务器&lt;/p&gt;
