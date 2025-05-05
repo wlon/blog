@@ -104,3 +104,4 @@ backpack.setgathermode <All|Existing|Off> <页数> - 为指定的扩展背包页
 /mnt n - 启用/禁用聊天通知
 ```
 
+[Simple Loot - 战利品倍数](https://rustsb.com/resources/496/)
