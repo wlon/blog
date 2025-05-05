@@ -1,6 +1,6 @@
 ---
 title: "Rust 腐蚀自建服务器插件"
-date: 2025-05-04T17:15:00+08:00
+date: 2025-05-05T17:15:00+08:00
 description: ""
 slug: "/blog/2025/rust-plugins"
 ---
@@ -95,5 +95,12 @@ backpack.setgathermode <All|Existing|Off> <页数> - 为指定的扩展背包页
 /bskin all - 更新玩家拥有的所有建筑的外观。
 
 /bskin all <steam id> - 更新指定玩家所有建筑的外观。（例如：/bskin all 765611000000000000）
+```
+
+[Map Note Teleport - 地图标记传送](https://rustsb.com/resources/577/)
+```
+/mnt 时间（秒） - 设置传送冷却时间
+/mnt t - 启用/禁用地图标记传送
+/mnt n - 启用/禁用聊天通知
 ```
 
